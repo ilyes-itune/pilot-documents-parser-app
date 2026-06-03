@@ -1,14 +1,38 @@
 <mat-toolbar color="primary">
-  <span>{{ title }}</span>
+  <span>Pilot Documents Parser</span>
+  <span class="spacer"></span>
 </mat-toolbar>
 
 <div class="container">
   <mat-tab-group>
     <mat-tab label="Upload & Parse">
-      <app-upload></app-upload>
+      <div class="upload-area">
+        <mat-icon style="font-size: 48px; color: #3f51b5;">cloud_upload</mat-icon>
+        <h2>Drop PDF files here or click to upload</h2>
+        <p>Supports PDF files and ZIP archives containing PDFs</p>
+        <button mat-raised-button color="primary">
+          <mat-icon>attach_file</mat-icon>
+          Select Files
+        </button>
+        <input type="file" hidden accept=".pdf,.zip" multiple>
+      </div>
     </mat-tab>
+    
     <mat-tab label="Results">
-      <app-parser-results></app-parser-results>
+      <mat-card class="results-card">
+        <mat-card-header>
+          <mat-card-title>Parsed Documents</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item>
+              <mat-icon matListItemIcon>description</mat-icon>
+              <div matListItemTitle>No documents parsed yet</div>
+              <div matListItemLine>Upload documents to see results here</div>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
     </mat-tab>
   </mat-tab-group>
 </div>
